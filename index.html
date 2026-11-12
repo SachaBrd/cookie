@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Les plus forts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <div id="start" class="overlay">
+    <h1>Les plus forts</h1>
+    <button id="begin" type="button" autofocus>Commencer</button>
+  </div>
+
+  <div id="game" hidden>
+    <header class="hud">
+      <div class="hud-group">
+        <div class="box counter" id="gold-box"><canvas data-icon="coin"></canvas><span id="gold">0</span></div>
+        <div class="box counter"><canvas data-icon="star"></canvas><span id="xp">0</span></div>
+        <button class="tab" type="button" data-panel="shop" aria-label="Boutique" aria-expanded="false"><canvas data-icon="bag"></canvas></button>
+        <button class="tab" type="button" data-panel="quests" aria-label="Quêtes" aria-expanded="false"><canvas data-icon="scroll"></canvas><span id="quest-badge" class="badge" hidden></span></button>
+      </div>
+      <div class="hud-group">
+        <button class="tab" type="button" id="mute" aria-label="Son" aria-pressed="true"><canvas data-icon="note"></canvas></button>
+        <button class="tab" type="button" id="save" aria-label="Sauvegarder"><canvas data-icon="floppy"></canvas></button>
+        <button class="tab" type="button" id="reset" aria-label="Réinitialiser la sauvegarde">↺</button>
+      </div>
+    </header>
+
+    <div id="drop" class="drop" hidden>
+      <section id="panel-shop" class="box panel" hidden>
+        <h2>Boutique</h2>
+        <ul id="shop-list" class="list"></ul>
+      </section>
+      <section id="panel-quests" class="box panel" hidden>
+        <h2>Quêtes</h2>
+        <ul id="quest-list" class="list"></ul>
+      </section>
+      <div id="tip" class="box tip" role="status" hidden></div>
+    </div>
+
+    <main>
+      <div id="characters"></div>
+      <p id="next" class="box hint"></p>
+    </main>
+  </div>
+
+  <template id="row">
+    <li class="row">
+      <canvas data-row-icon></canvas>
+      <span class="name"><span data-title></span> <span class="lvl" data-lvl></span></span>
+      <span class="cost"><canvas data-cost-icon></canvas><span data-cost></span></span>
+      <button type="button" class="buy"></button>
+    </li>
+  </template>
+
+  <template id="card">
+    <section class="char">
+      <button type="button" class="sprite" data-sprite><canvas width="16" height="24"></canvas></button>
+      <div class="box card-panel">
+        <h2><span data-name></span> <span class="lvl" data-level></span></h2>
+        <p class="meta" data-stats></p>
+        <button type="button" class="buy" data-buy></button>
+        <ul class="milestones" data-milestones></ul>
+      </div>
+    </section>
+  </template>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

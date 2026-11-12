@@ -1,0 +1,9 @@
+{
+  "name": "les-plus-forts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes serve .",
+    "test": "node --test"
+  }
+}
